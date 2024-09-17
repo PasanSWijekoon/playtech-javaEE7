@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PlayTechSolutions</title>
+        <link rel="icon" href="assets/img/ico.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+        <link rel="stylesheet" href="assets/css/ionicons.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <style>
+            .small-img-group{
+
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .small-img-col{
+                flex-basis: 24%;
+                cursor: pointer;
+            }
+
+            .sproduct select{
+                display: block;
+                padding: 5px 10px;
+
+            }
+
+            .sproduct input{
+                width: 50px;
+                height: 40px;
+                font-size: 16px;
+                margin-right: 10px;
+                padding-left: 10px;
+
+            }
+
+            .sproduct input:focus{
+                outline: none;
+            }
+            .buy-button{
+                background: orange;
+                opacity: 1;
+                transition: 0.3s all;
+
+            }
+
+
+
+        </style>
+
+    </head>
+
+    <body onload="loadProduct();">
+
+        <!-- Modal Search-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content shadow-lg border-0 rounded-lg">
+                    <div class="modal-body p-4">
+                        <form id="searchForm" action="shop.html" method="GET">
+                            <div class="input-group mb-3">
+                                <input type="search" class="form-control rounded-pill col-md-10" placeholder="Search for a product..."
+                                       aria-label="Search" aria-describedby="search-addon" id="t" name="t" />
+                                <button type="submit" style="color: white; background-color: #fb774b;"
+                                        class="btn rounded-pill col-md-2 ml-3">Search</button>
+                            </div>                 
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Heder -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+            <div class="container">
+                <img src="assets/img/Logo.png" alt="logo">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i id="bar" class="fa fa-bars" aria-hidden="true"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.html">Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <i class="fa fa-search" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+                            <i onclick="window.location.href = 'cart.html'" class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section class=" container sproduct my-5 pt-3">
+            <div class="row mt-5">
+                <div class="col-lg-5 col-md-12 col-12 ">
+                    <img class=" img-fluid w-100 pb-1" src="product-images/9/image1.png" id="MainImg" alt="">
+
+                    <div class=" small-img-group">
+                        <div class=" small-img-col ">
+                            <img  id="image1-thumb" src="product-images/9/image1.png" width="100%" class="small-img" alt="">
+                        </div>
+                        <div class=" small-img-col">
+                            <img  id="image2-thumb" src="product-images/9/image2.png" width="100%" class="small-img" alt="">
+                        </div>
+                        <div class=" small-img-col ">
+                            <img  id="image3-thumb" src="product-images/9/image3.png" width="100%" class="small-img" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-12 mt-5 ml-5">
+                    <h6>Home/Android</h6>
+                    <h3 id="product-title" class="py-4">Samsung Galaxy S22</h3>
+                    <p class="mb--10">Published On <span id="product-published-on"></span></p>
+                    <h2> <span id="price-amount">Rs. <span id="product-price"></span></span></h2>
+                    <ul class="product-meta">
+                        <li><i class="fal fa-check"></i> Brand: <span id="product-category"></span></li>
+                        <li><i class="fal fa-check"></i> Model: <span id="product-model"></span></li>
+                        <li><i class="fal fa-check"></i> <span id="product-condition"></span></li>
+                        <li><i class="fal fa-check"></i> In stock&nbsp;<span id="product-quantity"></span>&nbsp;Units</li>
+                    </ul>
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <h6 class="fw-bold text-black">Storage:</h6>
+                            <ul>
+                                <li id="product-storage" class="text-black">128 GB</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold text-black">Color:</h6>
+                            <ul>
+                                <li id="product-color" class="text-black">Black</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                    <input id="add-to-cart-qty" type="number" value="1">
+                    <button id="add-to-cart-main" class="buy-button">Add to cart</button>
+                  
+
+                </div>
+
+                <h4 class="mt-5 mb-5">Product details</h4>
+                <span id="product-description" >The Samsung Galaxy S22 specs are top-notch including a Snapdragon 8 Gen 1 chipset, 8GB RAM coupled with 128/256GB storage, and a 3700mAh battery with 25W charging speed. The phone sports a 6.1-inch Dynamic AMOLED display with an adaptive 120Hz refresh rate.</span>
+
+            </div>
+        </section>
+
+        <section id="featured" class="my-5 pb-5">
+            <div class=" container text-center mt-5 py-3">
+                <h3>Related Products</h3>
+                <hr class="mx-auto">
+
+            </div>
+
+            <div class="row mx-auto container-fluid" id="similar-product-main">
+
+                <div class="product text-center col-lg-3 col-md-4 col-12" id="similar-product">
+                    <a href="single-product.html" id="similar-product-a1">
+                        <img class=" img-fluid" src="product-images/9/image1.png" alt="s 22" id="similar-product-image">
+                    </a>
+
+                    <div class="star">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                    <h5 class="p-name" id="similar-product-title">Samsung Galaxy S22</h5>
+                    <h4 id="similar-product-price" class="p-price" >Rs/= 50,000 </h4>
+                    <a href="#" id="similar-product-a2">
+                        <button class="buy-button">Buy now</button>
+                    </a>
+                </div>
+
+            </div>
+
+
+        </section>
+        <footer class="footer-07">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 text-center">
+                        <h2 class="footer-heading"><a href="#" class="logo">PlayTechSolutions.com</a></h2>
+                        <p class="menu">
+                            <a href="index.php">Home</a>
+                            <a href="shop.php">SHOP</a>
+                            <a href="returenpolicy.php">Return Policy</a>
+                            <a href="termsandconditions.php">Terms & Conditions</a>
+                            <a href="privacypolicy.php">Privacy Policy</a>
+                            <a href="contact.php">Contact Us</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-12 text-center">
+                        <p class="copyright">
+                            Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script> All rights reserved | This Website is made by <a
+                                href="https://pasanswijekoon.github.io/About/" target="_blank">@pasanwijekoon</a>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+                integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+        crossorigin="anonymous"></script>
+
+        <script src="assets/js/single-product.js"></script>
+
+        <script>
+                                var MainImg = document.getElementById('MainImg');
+                                var smallimg = document.getElementsByClassName('small-img');
+
+                                smallimg[0].onclick = function () {
+                                    MainImg.src = smallimg[0].src;
+                                }
+
+                                smallimg[1].onclick = function () {
+                                    MainImg.src = smallimg[1].src;
+                                }
+
+                                smallimg[2].onclick = function () {
+                                    MainImg.src = smallimg[2].src;
+                                }
+
+
+        </script>
+    </body>
+
+</html>

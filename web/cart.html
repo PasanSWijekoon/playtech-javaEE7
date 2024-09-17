@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cart</title>
+        <link rel="icon" href="assets/img/ico.png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+        <link rel="stylesheet" href="assets/css/ionicons.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <style>
+            .product img{
+                width: 100%;
+                height: auto;
+                box-sizing: border-box;
+                object-fit: cover;
+            }
+
+            #Mobile > div.row.mx-auto.container > div.row.mx-auto.container > div.row.mx-auto.container > div.row.mx-auto.container > div.row.mx-auto.container > nav > ul > li.page-item.active > a{
+
+                background-color: coral;
+                border-color: coral;
+
+            }
+
+            .pagination a{
+                color: black;
+
+            }
+
+            table {
+                table-layout: fixed;
+                width: 100%; /* Ensures the table takes full available width */
+            }
+
+            td {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+
+        </style>
+
+    </head>
+
+    <body onload="loadCartItems();">
+
+          <!-- Modal Search-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content shadow-lg border-0 rounded-lg">
+                    <div class="modal-body p-4">
+                        <form id="searchForm" action="shop.html" method="GET">
+                            <div class="input-group mb-3">
+                                <input type="search" class="form-control rounded-pill col-md-10" placeholder="Search for a product..."
+                                       aria-label="Search" aria-describedby="search-addon" id="t" name="t" />
+                                <button type="submit" style="color: white; background-color: #fb774b;"
+                                        class="btn rounded-pill col-md-2 ml-3">Search</button>
+                            </div>                 
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Heder -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+            <div class="container">
+                <img src="assets/img/Logo.png" alt="logo">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i id="bar" class="fa fa-bars" aria-hidden="true"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.html">Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <i class="fa fa-search" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+                            <i onclick="window.location.href = 'cart.html'" class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <section id="Mobile" class="pt-5 mt-5 container">
+
+            <h3 class=" font-weight-bold pt-5">Shopping Cart</h3>
+            <hr class="">
+
+
+        </section>
+
+        <section id="cartcontainer" class="container my-5">
+
+
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>Remove</td>
+                        <td>Image</td>
+                        <td>Product</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Total</td>
+                    </tr>
+                </thead>
+
+                <tbody id="cartItemContainer">
+                    <tr id="cartItemRow">
+                        <td><a href="#">  <i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                        <td class="product-thumbnail"><a href="#" id="cartItemA"><img src="product-images/9/image1.png" id="cartItemImage" alt="Product" class="mt-1 mb-1"></a></td>
+                        <td><h5 id="cartItemTitle">No Products</h5></td>
+                        <td><h5 id="cartItemPrice" >Rs 00000.00</h5></td>
+                        <td><input class="w-25 pl-1 " type="number" value="1" id="cartItemQty"></td>
+                        <td><h5 id="cartItemSubtotal">Rs 0000.00</h5></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        </section>
+
+
+        <section id="cart-botom" class=" container py-3">
+            <div class="row">
+                <div class="coupon col-lg-6 col-md-6 col-12 mb-4">
+                    <div>
+                        <h5>Coupoun</h5>
+                        <p>Enter Your Coupon code here if you have any</p>
+                        <input type="text" placeholder="coupoun code">
+                        <button>Apply coupoun</button>
+                    </div>
+                </div>
+
+                <div class="total col-lg-6 col-md-6 col-12">
+                    <div>
+                        <h5>Cart total</h5>
+
+                        <div class=" d-flex justify-content-between">
+                            <h6>Quantities : <span id="cartTotalQty"></span></h6>
+
+                        </div>
+                        <hr class="second-hr">
+                        <div class=" d-flex justify-content-between">
+                            <h6>Total : <span id="cartTotal"></span></h6>
+
+
+
+                            <button onclick="window.location = 'checkout.html';" class="ml-auto">Proceed to Checkout</button>
+
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+
+
+   <footer class="footer-07">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 text-center">
+                        <h2 class="footer-heading"><a href="#" class="logo">PlayTechSolutions.com</a></h2>
+                        <p class="menu">
+                            <a href="index.html">Home</a>
+                            <a href="shop.html">SHOP</a>
+                            <a href="returenpolicy.html">Return Policy</a>
+                            <a href="termsandconditions.html">Terms & Conditions</a>
+                            <a href="privacypolicy.html">Privacy Policy</a>
+                            <a href="contact.html">Contact Us</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-12 text-center">
+                        <p class="copyright">
+                            Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script> All rights reserved | This Website is made by <a
+                                href="https://pasanswijekoon.github.io/About/" target="_blank">@pasanwijekoon</a>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        
+        
+        <script src="assets/js/cart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+                integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+        crossorigin="anonymous"></script>
+
+    </body>
+
+</html>

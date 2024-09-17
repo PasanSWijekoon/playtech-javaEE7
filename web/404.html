@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-fadeIn { animation: fadeIn 1s ease-out; }
+        .animate-slideIn { animation: slideIn 0.5s ease-out; }
+        .animate-bounce { animation: bounce 2s infinite; }
+    </style>
+</head>
+<body class="bg-gray-100 h-screen flex items-center justify-center">
+    <div class="text-center">
+        <h1 class="text-9xl font-bold text-gray-800 animate-bounce">404</h1>
+        <p class="text-2xl font-light text-gray-600 mt-4 animate-slideIn" style="animation-delay: 0.2s;">Oops! Page not found</p>
+        <p class="text-gray-500 mt-4 mb-8 animate-slideIn" style="animation-delay: 0.4s;">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+        <a href="index.html" class="px-6 py-3 text-white font-semibold rounded-lg shadow-md transition duration-300 ease-in-out animate-fadeIn hover:opacity-90" style="background-color: #fb774b; animation-delay: 0.6s;">Go Home</a>
+    </div>
+</body>
+</html>
