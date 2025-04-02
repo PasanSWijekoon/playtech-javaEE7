@@ -34,21 +34,24 @@ This project is a complete e-commerce solution built with Java EE 7. It demonstr
 ## Screenshots
 Below are some screenshots showcasing the key features of the application:
 
-1. **Homepage**
-   ![Homepage](screenshots/homepage.png)
-   *The main landing page displaying featured products.*
 
-2. **Product Page**
-   ![Product Page](screenshots/product-page.png)
-   *Detailed view of a product with options to add to cart.*
+   ![Homepage](https://i.imgur.com/X5kH7uU.jpeg)
 
-3. **Shopping Cart**
-   ![Shopping Cart](screenshots/shopping-cart.png)
-   *View and manage items in the shopping cart.*
+   ![Product Page](https://i.imgur.com/Hp4WT9M.jpeg)
 
-4. **Admin Dashboard**
-   ![Admin Dashboard](screenshots/admin-dashboard.png)
-   *Interface for managing products and orders.*
+   ![Shopping Cart](https://i.imgur.com/Hp4WT9M.jpeg)
+   ![Shopping Cart](https://i.imgur.com/WwanOux.jpeg)
+   ![Shopping Cart](https://i.imgur.com/dUmnIQV.jpeg)
+   ![Shopping Cart](https://i.imgur.com/DXnPZzr.jpeg)
+   ![Shopping Cart](https://i.imgur.com/K6JvWGc.jpeg)
+   ![Shopping Cart](https://i.imgur.com/bL6r33r.jpeg)
+   ![Shopping Cart](https://i.imgur.com/CD3OaGu.jpeg)
+  ![Shopping Cart](https://i.imgur.com/KrUAG2T.jpeg)
+  ![Shopping Cart](https://i.imgur.com/be7Ae0F.jpeg)
+
+   
+
+   
 
 ## Contact
 For questions or feedback, feel free to reach out:
